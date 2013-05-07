@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Page Title</title>
+	<script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+	<style type="text/css" media="screen">
+		#container{
+			width						: 100%;
+			background			: url('http://farm4.staticflickr.com/3237/2674833839_bc87f4e8ce_z.jpg') no-repeat;
+			position 				: relative;
+			background-size	: cover; /* Really important! */
+		}
+		#message{
+			position 				: absolute;
+			bottom 					: 50px;
+			left 						: 100px;
+			width 					: 400px;
+			background 			: white;
+			padding 				: 10px;
+		}
+		.dot{
+			position 				: absolute;
+			height 					: 35px;
+			font 						: normal normal 100px/35px Arial, sans-serif;
+			color 					: blue;
+			opacity 				: 0.5;
+		}
+		
+		#dot1{
+			top							: 270px;
+			left 						: 200px;
+		}
+		
+		#dot2{
+			top							: 120px;
+			left 						: 300px;
+		}
+		
+	</style>
+	<script type="text/javascript" charset="utf-8">
+	/* bgCoverAttach Minified version.  */
+(function(a){a.bgCoverAttach=function(e,c){var b=a(e),e=e,h={};var g={parentelm:a(e).parent(),top:b.css("top"),left:b.css("left")};var f=this;f.settings={};f.init=function(){f.settings=a.extend({},g,c);var i=f.settings.parentelm.css("background-image").slice(4,-1);var k=new Image();var j=j||{error:function(){}};if(f.settings.parentelm.css("background-size")!="cover"){j.error("This plugin only works with the containing element has background-size:cover");return false}if(typeof i!=="string"){j.error("No background image found on parent element");return false}if(f.settings.top=="auto"||f.settings.left=="auto"){j.error("#"+b.attr("id")+" needs CSS values for 'top' and 'left'");return false}a(k).on("load",function(){h.width=this.width;h.height=this.height;d(h.width,h.height)});a(window).on("resize",function(){if("width" in h&&h.width!=0){d(h.width,h.height)}});k.src=i};var d=function(j,k){var i=f.settings.parentelm.width()/j,m=f.settings.parentelm.height()/k,l=i>m?i:m;b.css({top:parseInt(f.settings.top,10)*l,left:parseInt(f.settings.left,10)*l})};f.init()};a.fn.bgCoverAttach=function(b){return this.each(function(){if(undefined==a(this).data("bgCoverAttach")){var c=new a.bgCoverAttach(this,b);a(this).data("bgCoverAttach",c)}})}})(jQuery);
+	
+		$(document).ready(function(){
+
+			$('#container').css('height', $(window).height());
+			$(window).on('resize', function(){
+				$('#container').css('height', $(window).height());
+			})
+
+			$('.dot').bgCoverAttach();
+		});
+	</script>
+</head>
+<body>
+	<div id="container">
+		<div class="dot" id="dot1">&bull;</div>
+		<div class="dot" id="dot2">&bull;</div>
+	</div>
+	<div id="message">
+		<p style="margin:0; padding:0;">Resize the browser window to see how the dots will stay in their respective spots relative to the background image.</p>
+	</div>
+</body>
+</html>
