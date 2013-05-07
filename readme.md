@@ -7,6 +7,10 @@ But there is a problem I've run into on a few occasions, which is positioning it
 
 This is a small jQuery plugin I wrote to help fix that. 
 
+**Example**
+
+<img src="https://raw.github.com/jrue/background-cover-attach/master/demo/example.gif" width="200" height="225" alt="example of plugin in action" />
+
 ```javascript
 $('#container a').bgCoverAttach();
 ```
@@ -14,8 +18,9 @@ $('#container a').bgCoverAttach();
 Some of the optional parameters include setting a different container div which has the `background-size:cover` property, and setting a different `top` or `left` CSS values.
 
 ```javascript
+//optional. Will auto-detect this.
 $('#container a').bgCoverAttach({
-	parentelm		: '#container',
+	parentelm			: '#container',
 	top					: '400px',
 	left				: '50px'
 });
